@@ -51,9 +51,7 @@ cd document-intelligence-transformer
 
 2. Launch all services
 
-´´´bash
-docker-compose up --build
-```
+<pre> ```bash docker-compose up --build ``` </pre>
 ### 🔗 Access the Services
 
 - **API**: [http://localhost:5000/predict](http://localhost:5000/predict)  
