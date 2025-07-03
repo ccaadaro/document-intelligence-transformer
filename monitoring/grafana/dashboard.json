@@ -1,0 +1,51 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Document Prediction Monitoring",
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "5s",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Request Latency (ms)",
+        "id": 1,
+        "gridPos": { "x": 0, "y": 0, "w": 24, "h": 8 },
+        "targets": [
+          {
+            "expr": "rate(flask_http_request_duration_seconds_sum[1m]) / rate(flask_http_request_duration_seconds_count[1m]) * 1000",
+            "legendFormat": "{{handler}}",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          { "format": "ms", "label": "Latency", "logBase": 1 },
+          { "format": "short" }
+        ]
+      },
+      {
+        "type": "stat",
+        "title": "Request Rate (/predict)",
+        "id": 2,
+        "gridPos": { "x": 0, "y": 8, "w": 8, "h": 6 },
+        "targets": [
+          {
+            "expr": "rate(flask_http_request_total{handler=\"/predict\"}[1m])",
+            "refId": "B"
+          }
+        ],
+        "options": {
+          "reduceOptions": {
+            "calcs": ["mean"],
+            "fields": "",
+            "values": false
+          },
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto"
+        }
+      }
+    ]
+  }
+}

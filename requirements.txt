@@ -1,0 +1,8 @@
+flask
+torch
+torchvision
+sklearn
+pillow
+pytesseract
+matplotlib
+prometheus_flask_exporter
