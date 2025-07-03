@@ -79,6 +79,7 @@ cd document-intelligence-transformer
     "...": "..."
   }
 }
+```
 ## 📊 Monitoring
 
 - Prometheus scrapes real-time metrics from the Flask API (`/metrics`)
